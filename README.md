@@ -18,6 +18,7 @@
 gobuster dir -u http://10.48.176.202 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
 ```
 ![](images/1.png)
+
 Explanation:
 
 -	gobuster
@@ -43,6 +44,7 @@ Result:
 - URL: http://10.48.176.202/island
  
 ![](images/2.png)
+
 Explanation:
 - The page displays a message with a hidden clue:
 - “The Code Word is:”
@@ -56,6 +58,7 @@ Explanation:
 gobuster dir -u http://10.48.176.202/island -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
 ```
 ![](images/3.png)
+
 Explanation:
 - Same command as before but targeting /island.
   
@@ -334,9 +337,11 @@ Function:
 - Display final flag.
 
 ---
-Author
 
-Lyana Yasmin
+## 👩‍💻 Author
+
+**Lyana Yasmin**
+
 
 
 
