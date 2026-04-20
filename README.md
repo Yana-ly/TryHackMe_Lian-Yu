@@ -17,7 +17,7 @@
 ```bash
 gobuster dir -u http://10.48.176.202 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
 ```
-
+![](images/1.png)
 Explanation:
 
 -	gobuster
@@ -41,7 +41,8 @@ Result:
 
 ## 3. Accessing /island Page
 - URL: http://10.48.176.202/island
-
+ 
+![](images/2.png)
 Explanation:
 - The page displays a message with a hidden clue:
 - “The Code Word is:”
@@ -54,6 +55,7 @@ Explanation:
 ```bash
 gobuster dir -u http://10.48.176.202/island -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
 ```
+![](images/3.png)
 Explanation:
 - Same command as before but targeting /island.
   
@@ -65,7 +67,9 @@ Result:
  
 ## 5. Accessing /2100 Page
 - URL: http://10.48.176.202/island/2100
-  
+
+ ![](images/4.png)
+
 Explanation:
 - The page appears mostly empty but contains hints.
 - Suggests checking the page source.
@@ -74,6 +78,8 @@ Explanation:
 ## 6. Viewing Page Source
 Action:
 - Right-click → “View Page Source” 
+
+![](images/5.png)
 
 Explanation:
 - Reveals hidden HTML comment:
@@ -89,6 +95,8 @@ Function:
 gobuster dir -u http://10.48.176.202/island/2100 -x ticket -w
 /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
 ```
+![](images/6.png)
+
 Explanation:
 - -x ticket
         → Instructs Gobuster to search for files ending with .ticket.
@@ -104,12 +112,16 @@ Result:
 ## 8. Accessing Ticket File
 URL: http://10.48.176.202/island/2100/green_arrow.ticket
 
+![](images/7.png)
+
 Explanation:
 - The file contains an encoded string:  RTy8yHQdsxC
  
 
 
 ## 9. Decoding Using CyberChef
+![](images/8.png)
+
 Explanation:
 - The encoded string is decoded using Base58 decoding.
   
@@ -121,6 +133,7 @@ Result:
 
 
 ## 10. Code Word Discovery
+![](images/9.png)
 - From the earlier page:  vigilante
 - Used as username later.
 
@@ -131,6 +144,9 @@ Result:
 ```bash
 sudo openvpn Lian_Yu.ovpn
 ```
+![](images/10.png)
+![](images/11.png)
+
 Explanation:
 - sudo
 → Runs the command with superuser (root) privileges, required to modify network settings.
@@ -157,6 +173,8 @@ Additional Explanation (IP Change):
 ```bash
 ftp 10.49.157.190
 ```
+![](images/12.png)
+
 Explanation:
 - ftp
 → A command used to connect to a remote server using the File Transfer Protocol (FTP).
@@ -184,6 +202,8 @@ get Leave_me_alone.png
 get Queen's_Gambit.png
 get aa.jpg
 ```
+![](images/13.png)
+
 Explanation:
 - get
      → Downloads files from FTP server to local machine. 
@@ -197,6 +217,8 @@ Function:
 ```bash
 steghide extract -sf aa.jpg
 ```
+![](images/14.png)
+
 Explanation:
 - steghide
 → A tool used for steganography (hiding data in files). 
@@ -217,6 +239,8 @@ Result:
 ```bash
 unzip ss.zip
 ```
+![](images/15.png)
+
 Function:
 - Extract compressed files.
   
@@ -232,6 +256,9 @@ Result:
 cat passwd.txt
 cat shado
 ```
+![](images/16.png)
+![](images/17.png)
+
 Explanation:
 - cat
 → Displays file content. 
@@ -245,6 +272,8 @@ Result:
 ```bash
 ssh slade@10.49.157.190
 ```
+![](images/18.png)
+
 Explanation:
 - ssh
 → Secure Shell protocol for remote login.
@@ -260,6 +289,7 @@ Function:
 ```bash
 cat user.txt
 ```
+![](images/19.png)
 Function:
 - Display user flag.
 
@@ -269,6 +299,8 @@ Function:
 ```bash
 sudo -l
 ```
+![](images/20.png)
+
 Explanation:
 - Lists commands that can be run with sudo privileges. 
 
@@ -281,6 +313,8 @@ Result:
 ```bash
 sudo /usr/bin/pkexec /bin/sh
 ```
+![](images/21.png)
+
 Explanation:
 - Executes a shell with root privileges. 
 
@@ -293,8 +327,16 @@ Function:
 ```bash
 cat root.txt
 ```
+![](images/22.png)
+![](images/23.png)
+
 Function:
-- Display final flag. 
+- Display final flag.
+
+---
+Author
+
+Lyana Yasmin
 
 
 
